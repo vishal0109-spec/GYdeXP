@@ -12,7 +12,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {chatt, home, lores, profilee, services} from '../Utils/img';
+import {account, Cart,  explore, fav, shop} from '../Utils/img';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -36,8 +36,6 @@ const BottomNav = () => {
               }}>
               <View
                 style={{
-                  backgroundColor: focused ? 'white' : 'transparent',
-                  marginBottom: focused ? hp(1.5) : 0,
                   alignItems: 'center',
                   justifyContent: 'center',
                   width: hp(4),
@@ -46,22 +44,22 @@ const BottomNav = () => {
                 }}>
                 <Image
                   style={{
-                    tintColor: focused ? '#16181A' : '#8F8F8F',
+                    tintColor: focused ? '#53B175' : '#181725',
                     width: hp(2.6),
                     height: hp(2.5),
                   }}
-                  source={home}
+                  source={shop}
                 />
               </View>
 
               <Text
                 style={{
-                  color: focused ? 'white' : '#8F8F8F',
+                  color: focused ? '#53B175' : '#181725',
                   fontSize: hp(1.4),
                   fontWeight: '500',
                   marginBottom: hp(1.2),
                 }}>
-                Home
+                Shop
               </Text>
             </Animated.View>
           ),
@@ -79,8 +77,6 @@ const BottomNav = () => {
               }}>
               <View
                 style={{
-                  backgroundColor: focused ? 'white' : 'transparent',
-                  marginBottom: focused ? hp(1.5) : 0,
                   alignItems: 'center',
                   justifyContent: 'center',
                   width: hp(4),
@@ -89,22 +85,22 @@ const BottomNav = () => {
                 }}>
                 <Image
                   style={{
-                    tintColor: focused ? '#16181A' : '#8F8F8F',
-                    width: hp(2.6),
-                    height: hp(2.5),
+                    tintColor: focused ? '#53B175' : '#181725',
+                    width: hp(3),
+                    height: hp(2),
                   }}
-                  source={lores}
+                  source={explore}
                 />
               </View>
 
               <Text
                 style={{
-                  color: focused ? 'white' : '#8F8F8F',
+                  color: focused ? '#53B175' : '#181725',
                   fontSize: hp(1.4),
                   fontWeight: '500',
                   marginBottom: hp(1.2),
                 }}>
-                Lores
+                Explore
               </Text>
             </Animated.View>
           ),
@@ -122,8 +118,6 @@ const BottomNav = () => {
               }}>
               <View
                 style={{
-                  backgroundColor: focused ? 'white' : 'transparent',
-                  marginBottom: focused ? hp(1.5) : 0,
                   alignItems: 'center',
                   justifyContent: 'center',
                   width: hp(4),
@@ -132,22 +126,22 @@ const BottomNav = () => {
                 }}>
                 <Image
                   style={{
-                    tintColor: focused ? '#16181A' : '#8F8F8F',
+                    tintColor: focused ? '#53B175' : '#181725',
                     width: hp(2.6),
                     height: hp(2.5),
                   }}
-                  source={services}
+                  source={Cart}
                 />
               </View>
 
               <Text
                 style={{
-                  color: focused ? 'white' : '#8F8F8F',
+                  color: focused ? '#53B175' : '#181725',
                   fontSize: hp(1.4),
                   fontWeight: '500',
                   marginBottom: hp(1.2),
                 }}>
-                Services
+                Cart
               </Text>
             </Animated.View>
           ),
@@ -166,8 +160,7 @@ const BottomNav = () => {
               }}>
               <View
                 style={{
-                  backgroundColor: focused ? 'white' : 'transparent',
-                  marginBottom: focused ? hp(1.5) : 0,
+                  
                   alignItems: 'center',
                   justifyContent: 'center',
                   width: hp(4),
@@ -176,22 +169,22 @@ const BottomNav = () => {
                 }}>
                 <Image
                   style={{
-                    tintColor: focused ? '#16181A' : '#8F8F8F',
-                    width: hp(2.6),
-                    height: hp(2.5),
+                    tintColor: focused ? '#53B175' : '#181725',
+                    width: hp(2.5),
+                    height: hp(2.3),
                   }}
-                  source={chatt}
+                  source={fav}
                 />
               </View>
 
               <Text
                 style={{
-                  color: focused ? 'white' : '#8F8F8F',
+                  color: focused ? '#53B175' : '#181725',
                   fontSize: hp(1.4),
                   fontWeight: '500',
                   marginBottom: hp(1.2),
                 }}>
-                Chat
+                Favourite
               </Text>
             </Animated.View>
           ),
@@ -209,8 +202,6 @@ const BottomNav = () => {
               }}>
               <View
                 style={{
-                  backgroundColor: focused ? 'white' : 'transparent',
-                  marginBottom: focused ? hp(1.5) : 0,
                   alignItems: 'center',
                   justifyContent: 'center',
                   width: hp(4),
@@ -219,22 +210,22 @@ const BottomNav = () => {
                 }}>
                 <Image
                   style={{
-                    tintColor: focused ? '#16181A' : '#8F8F8F',
-                    width: hp(2.6),
+                    tintColor: focused ? '#53B175' : '#181725',
+                    width: hp(2.3),
                     height: hp(2.5),
                   }}
-                  source={profilee}
+                  source={account}
                 />
               </View>
 
               <Text
                 style={{
-                  color: focused ? 'white' : '#8F8F8F',
+                  color: focused ? '#53B175' : '#181725',
                   fontSize: hp(1.4),
                   fontWeight: '500',
                   marginBottom: hp(1.2),
                 }}>
-                Profile
+                Account
               </Text>
             </Animated.View>
           ),

@@ -1,112 +1,70 @@
-import {View, Text, Image, TextInput, FlatList} from 'react-native';
+import {View, Text, Image, TextInput, TouchableOpacity, FlatList} from 'react-native';
 import React from 'react';
 import {styles} from './style';
 import {
-  clock,
-  down,
-  Line,
+  bevarage,
+  bs,
+  cog,
+  de,
+  ffv,
+  Ham,
   logoo,
-  notification,
+  mf,
   search,
 } from '../Utils/img';
-import Button from '../Components/CustomButton';
-import { useNavigation } from '@react-navigation/native';
-import Map from './Map';
-import { data1, exploreTripsData, featuredExperiencesData } from '../Utils/data';
+
+const categories = [
+  { id: '1', name: 'Fresh Fruits & Vegetable', image: ffv, bgColor: '#E8F5E9' },
+  { id: '2', name: 'Cooking Oil & Ghee', image: cog, bgColor: '#FFF3E0' },
+  { id: '3', name: 'Meat & Fish', image: mf, bgColor: '#FFEBEE' },
+  { id: '4', name: 'Bakery & Snacks', image: bs, bgColor: '#F3E5F5' },
+  { id: '5', name: 'Dairy & Eggs', image: de, bgColor: '#FFFDE7' },
+  { id: '6', name: 'Beverages', image: bevarage, bgColor: '#E3F2FD' },
+  { id: '7', name: 'Fresh Fruits & Vegetable', image: ffv, bgColor: '#E8F5E9' },
+  { id: '8', name: 'Cooking Oil & Ghee', image: cog, bgColor: '#FFF3E0' },
+];
 
 
 const Home = () => {
-    const navigation = useNavigation();
+
+  const renderCategory = ({ item }) => {
+    return (
+      <TouchableOpacity style={[styles.categoryCard, { backgroundColor: item.bgColor }]}>
+        <Image source={item.image} style={styles.categoryImage} />
+        <Text style={styles.categoryText}>{item.name}</Text>
+      </TouchableOpacity>
+    );
+  };
+  
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={logoo} style={styles.logo} />
-        <Image source={notification} style={styles.bell} />
+        <Image source={Ham} style={styles.bell} />
+      </View>
+
+      <View style={styles.header2}>
+        <Text style={styles.header2Txt}>Find Products</Text>
       </View>
 
       <View style={styles.searchBar}>
         <Image source={search} style={styles.searchIcon} />
         <TextInput
           style={styles.searchIconTxt}
-          placeholder="Search for Places"
-          placeholderTextColor="#D9D9D9"
-        />
-        <Image source={Line} style={styles.line} />
-        <View style={styles.gyde}>
-          <Image source={clock} style={styles.clock} />
-          <Text style={styles.gydeTxt}>Gyde Now</Text>
-          <Button 
-          icon={down} 
-          iconStyle={styles.downBtn} 
-          onPress={() => navigation.navigate(Map)} />
-        </View>
-      </View>
-
-      <View style={styles.tripContainer}>
-        <Text style={styles.heading}>Where to next {'>'} </Text>
-        <FlatList
-          data={data1}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          renderItem={({item}) => (
-            <View style={styles.itemContainer}>
-              <Image source={item.image} style={styles.image} />
-              <View style={styles.tripTxtContainer}>
-                <Image source={item.icon} style={styles.icon} />
-                <Text style={styles.title}>{item.title}</Text>
-              </View>
-            </View>
-          )}
-          keyExtractor={item => item.id}
+          placeholder="Search Stores"
+          placeholderTextColor="#7C7C7C"
         />
       </View>
 
-      <View style={styles.tripContainer}>
-        <Text style={styles.heading}>Explore trips {'>'} </Text>
-        <FlatList
-          data={exploreTripsData}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          renderItem={({item}) => (
-            <View style={styles.largeItemContainer}>
-              <Image source={item.image} style={styles.largeImage} />
-              <View style={styles.tripLocation}>
-                <Image source={item.icon} style={styles.icon2} />
-                <Text style={styles.locationText}>{item.location}</Text>
-              </View>
-
-              <Text style={styles.largeTitle}>{item.title}</Text>
-
-              <View style={styles.memoryContainer}>
-                <View style={styles.memoryContainer2}>
-                  <Text style={styles.memoriesText}>{item.memories}</Text>
-                </View>
-
-                <Text style={styles.priceText}>starting {item.price}</Text>
-              </View>
-            </View>
-          )}
-          keyExtractor={item => item.id}
-        />
-      </View>
-
-      <View style={styles.tripContainer}>
-        <Text style={styles.heading}>Featured Experiences {'>'} </Text>
-
-        <FlatList
-          data={featuredExperiencesData}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          renderItem={({item}) => (
-            <View style={styles.featuredItemContainer}>
-              <Image source={item.image} style={styles.featuredImage} />
-              <Text style={styles.featuredTitle}>{item.title}</Text>
-              <Text style={styles.featuredDescription}>{item.description}</Text>
-            </View>
-          )}
-          keyExtractor={item => item.id}
-        />
-      </View>
+      <FlatList
+      data={categories}
+      renderItem={renderCategory}
+      keyExtractor={item => item.id}
+      numColumns={2}
+      contentContainerStyle={styles.categoryList}
+    />
+     
     </View>
   );
 };
